@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi, Celestine!</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Hi, Celestine!</h1>
+        <h6>Page 1/365: Feb 14, 2022</h6>
+        <p>
+            There's so much I want to say, but dont. I will drop all pretense of anything to be with you for only a solitary day. 
+            <br /><br />
+            I'll understand that you don't have the capacity to deal something like this right now. 
+            Nonetheless, I'm going to do it anyway. I'm pouring my heart out to you in the hopes that you'll read it someday. 
+            <br /><br />
+            I know we're in pursuit of achieving something incredible and significant in our own lives. 
+            I wish for your career will follow you through and you'll be a star at what you do. 
+            Just like how your folks named you. Continue to shine, no matter what route you take. 
+            <br /><br />
+            You are magnificent in every last bit of it. You are like a sun that is designed to mild up my reality. 
+            I can't hold on to have you and your mind is made up on me. 
+            I wish you could reclaim those words or arbitration and make me the one you will turn upward to and love totally. 
+            That is on the grounds that I like you with every fiber of my being.
+            <br /><br />
+            <strong>Love,</strong><br />
+            Not really your biggest fan, but someone who appreciates you dearly.
+            <br />
+            PS: I planned to write to you, on this page. Until this feelings fade.
+        </p>
+        <audio id="audioplayer" controls autoplay>
+            <!-- <source src="../music/i can't make you love me - dave thomas junior.mp3" type="audio/mp3">
+            <source src="./music/James Blunt - You're Beautiful.mp3" type="audio/mp3">
+            <source src="./music/please never fall in love again - Ollie MN.mp3" type="audio/mp3">
+            <source src="./music/Tal Bachman - She's So High.mp3" type="audio/mp3">
+            <source src="./music/j's lullaby (darlin' i'd wait for you).mp3" type="audio/mp3">
+            <source src="./music/Blake Rose - Gone.mp3" type="audio/mp3"> -->
+            Your browser does not support the audio element.
+        </audio>
+
+        <script>
+            var lastSong = null;
+            var selection = null;
+            var playlist = [
+                "./music/i can't make you love me - dave thomas junior.mp3", 
+                "./music/James Blunt - You're Beautiful.mp3", 
+                "./music/please never fall in love again - Ollie MN.mp3",
+                "./music/Tal Bachman - She's So High.mp3",
+                "./music/j's lullaby (darlin' i'd wait for you).mp3",
+                "./music/Blake Rose - Gone.mp3"
+                ]; // List of songs
+            var player = document.getElementById("audioplayer"); // Get audio element
+            player.autoplay=true;
+            player.addEventListener("ended", selectRandom); // Run function when the song ends
+        
+            function selectRandom(){
+                while(selection == lastSong){ // Repeat until a different song is selected
+                    selection = Math.floor(Math.random() * playlist.length);
+                }
+                lastSong = selection; // Remember the last song
+                player.src = playlist[selection]; // Tell HTML the location of the new song
+            }
+        
+            selectRandom(); // Select initial song
+            player.play(); // Start song
+        </script>
+    </div>     
+</body>
+</html>
