@@ -2,6 +2,11 @@
     font-size: 16px;
 }
 
+%animation-default{
+    opacity: 1 !important;
+    z-index: 3;
+}
+
 
 @font-face {
     font-family: "Caveat";
@@ -11,6 +16,85 @@
 @font-face {
     font-family: "Callient";
     src: url(../fonts/Callient.otf);
+}
+
+@mixin carousel($items, $animation: 'default') {
+    .carousel{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        > input[type="radio"] {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            top: 0;
+
+            &:checked{
+                ~ .carousel-items .carousel-item,
+                ~ .carousel-prev > label,
+                ~ .carousel-next > label {
+                    opacity: 0;
+                }
+            }
+
+            @for $i from 1 to $items {
+                &:nth-child(#{$i}){
+                    &:checked {
+                        ~ .carousel-items .carousel-item {
+                            @if $animation == 'default' {
+                                &:nth-child(#{$i}) {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+
+                        ~ .carousel-prev {
+                            > label {
+                                @if $i == 1 {
+                                    &:nth-child(#{$items}) {
+                                        @extend %animation-default;
+                                    }
+                                } @else if $i == $items {
+                                    &:nth-child(#{$items - 1}) {
+                                        @extend %animation-default;
+                                    }
+                                } @else {
+                                    &:nth-child(#{$i -1}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+                            }
+                        }
+
+                        ~ .carousel-next {
+                            > label {
+                                @if $i == $items {
+                                    &:nth-child(1) {
+                                        @extend %animation-default;
+                                    }
+                                } @else {
+                                    &:nth-child(#{$i + 1}) {
+                                        @extend %animation-default;
+                                    }
+                                }
+                            }
+                        }
+
+                        ~ .carousel-nav {
+                            > label {
+                                &:nth-child(#{$i}) {
+                                    background: #ccc;
+                                    cursor: pointer;
+                                    pointer-events: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // *:not(i){font-family: 'Raleway', sans-serif;}

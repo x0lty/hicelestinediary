@@ -8,29 +8,98 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    
     <div class="container">
-        <h1>Hi, Celestine!</h1>
-        <h6>Page 1/365: Feb 14, 2022</h6>
-        <p>
-            There's so much I want to say, but dont. I will drop all pretense of anything to be with you for only a solitary day. 
-            <br /><br />
-            I'll understand that you don't have the capacity to deal something like this right now. 
-            Nonetheless, I'm going to do it anyway. I'm pouring my heart out to you in the hopes that you'll read it someday. 
-            <br /><br />
-            I know we're in pursuit of achieving something incredible and significant in our own lives. 
-            I wish for your career will follow you through and you'll be a star at what you do. 
-            Just like how your folks named you. Continue to shine, no matter what route you take. 
-            <br /><br />
-            You are magnificent in every last bit of it. You are like a sun that is designed to mild up my reality. 
-            I can't hold on to have you and your mind is made up on me. 
-            I wish you could reclaim those words or arbitration and make me the one you will turn upward to and love totally. 
-            That is on the grounds that I like you with every fiber of my being.
-            <br /><br />
-            <strong>Love,</strong><br />
-            Not really your biggest fan, but someone who appreciates you dearly.
-            <br />
-            PS: I planned to write to you, on this page. Until this feelings fade.
-        </p>
+        <div class="carousel">
+            <input type="radio" name="carousel[]" id="carousel-1" checked>
+            <input type="radio" name="carousel[]" id="carousel-2" checked>
+            <input type="radio" name="carousel[]" id="carousel-3" checked>
+            <input type="radio" name="carousel[]" id="carousel-4" checked>
+            <input type="radio" name="carousel[]" id="carousel-5" checked>
+            
+            <ul class="carousel-items">
+                <li class="carousel-item">
+                    <div class="daily-dairy-1">
+                        <h1>Hi, Celestine!</h1>
+                        <h6>Page 1/365: Feb 14, 2022</h6>
+                        <p>
+                            There's so much I want to say, but dont. I will drop all pretense of anything to be with you for only a solitary day. 
+                            <br /><br />
+                            I'll understand that you don't have the capacity to deal something like this right now. 
+                            Nonetheless, I'm going to do it anyway. I'm pouring my heart out to you in the hopes that you'll read it someday. 
+                            <br /><br />
+                            I know we're in pursuit of achieving something incredible and significant in our own lives. 
+                            I wish for your career will follow you through and you'll be a star at what you do. 
+                            Just like how your folks named you. Continue to shine, no matter what route you take. 
+                            <br /><br />
+                            You are magnificent in every last bit of it. You are like a sun that is designed to mild up my reality. 
+                            I can't hold on to have you and your mind is made up on me. 
+                            I wish you could reclaim those words or arbitration and make me the one you will turn upward to and love totally. 
+                            That is on the grounds that I like you with every fiber of my being.
+                            <br /><br />
+                            <strong>Love,</strong><br />
+                            Not really your biggest fan, but someone who appreciates you dearly.
+                            <br />
+                            PS: I planned to write to you, on this page. Until this feelings fade.
+                        </p>
+                    </div>
+                </li>
+
+                <li class="carousel-item">
+                    <div class="daily-dairy-2">
+                        <h1>Hi, Celestine!</h1>
+                        <h6>Page 2/365: Feb 15, 2022</h6>
+                        <p>
+                            Yesterday, I was frightened. Today, I am disheartened. 
+                            <br /><br />
+                            Turned up, in Iloilo, I was within your parameters. 
+                            But I couldn’t give(deliver) you the gift that I painstakingly crafted for several days, a knitted bouquet along with sketches. 
+                            I also want to give you lavish gifts but I’m an artist, I work with my hands and think this is the best way to express my sincerity for you. 
+                            I know this is nothing compared to the expensive gifts that you might have received yesterday or long before that. 
+                            But you are worth the effort. 
+                            <br /><br />
+                            It was Valentine’s day, and ironically, I don't have the heart to disturb you and the peace that you meticulously protected. 
+                            Moreover, it is one of the reasons why I didn’t bother you, in the first place. 
+                            I understand and believe that you deserve it. 
+                            Besides, the person I am right now is someone that has so many “red flags”. 
+                            (Whatever jargons, argots, lingo you fellas call it.) 
+                            Therefore, I will not disrupt your peace for as long as I see myself as unfit and ineligible even to my own best possible epitome of person in pursuing you.
+                            <br /><br />
+                            I wish you happiness.
+                            <br /><br />
+                            <strong>Love,</strong><br />
+                            Not really your biggest fan, but someone who appreciates you dearly.
+                            <br />
+                        </p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="carousel-prev">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+                <label for="carousel-4"></label>
+                <label for="carousel-5"></label>
+            </div>
+
+            <div class="carousel-next">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+                <label for="carousel-4"></label>
+                <label for="carousel-5"></label>
+            </div>
+
+            <div class="carousel-nav">
+                <label for="carousel-1"></label>
+                <label for="carousel-2"></label>
+                <label for="carousel-3"></label>
+                <label for="carousel-4"></label>
+                <label for="carousel-5"></label>
+            </div>
+        </div>
+
         <audio id="audioplayer" controls autoplay>
             <!-- <source src="../music/i can't make you love me - dave thomas junior.mp3" type="audio/mp3">
             <source src="./music/James Blunt - You're Beautiful.mp3" type="audio/mp3">
@@ -67,6 +136,6 @@
             selectRandom(); // Select initial song
             player.play(); // Start song
         </script>
-    </div>     
+    </div>
 </body>
 </html>
