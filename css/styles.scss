@@ -2,10 +2,10 @@
     font-size: 16px;
 }
 
-%animation-default{
-    opacity: 1 !important;
-    z-index: 3;
-}
+// %animation-default{
+//     opacity: 1 !important;
+//     z-index: 3;
+// }
 
 
 @font-face {
@@ -18,84 +18,178 @@
     src: url(../fonts/Callient.otf);
 }
 
-@mixin carousel($items, $animation: 'default') {
-    .carousel{
-        width: 100%;
-        position: relative;
-        overflow: hidden;
+// @mixin carousel($items, $animation: 'default') {
+//     .carousel{
+//         width: 100%;
+//         position: relative;
+//         overflow: hidden;
 
-        > input[type="radio"] {
-            position: absolute;
-            left: 0;
-            opacity: 0;
-            top: 0;
+//         > input[type="radio"] {
+//             position: absolute;
+//             left: 0;
+//             opacity: 0;
+//             top: 0;
 
-            &:checked{
-                ~ .carousel-items .carousel-item,
-                ~ .carousel-prev > label,
-                ~ .carousel-next > label {
-                    opacity: 0;
-                }
-            }
+//             &:checked{
+//                 ~ .carousel__items .carousel__item,
+//                 ~ .carousel__prev > label,
+//                 ~ .carousel__next > label {
+//                     opacity: 0;
+//                 }
+//             }
 
-            @for $i from 1 to $items {
-                &:nth-child(#{$i}){
-                    &:checked {
-                        ~ .carousel-items .carousel-item {
-                            @if $animation == 'default' {
-                                &:nth-child(#{$i}) {
-                                    opacity: 1;
-                                }
-                            }
-                        }
+//             @for $i from 1 to $items {
+//                 &:nth-child(#{$i}){
+//                     &:checked {
+//                         ~ .carousel__items .carousel__item {
+//                             @if $animation == 'default' {
+//                                 &:nth-child(#{$i}) {
+//                                     opacity: 1;
+//                                 }
+//                             }
+//                         }
 
-                        ~ .carousel-prev {
-                            > label {
-                                @if $i == 1 {
-                                    &:nth-child(#{$items}) {
-                                        @extend %animation-default;
-                                    }
-                                } @else if $i == $items {
-                                    &:nth-child(#{$items - 1}) {
-                                        @extend %animation-default;
-                                    }
-                                } @else {
-                                    &:nth-child(#{$i -1}) {
-                                        @extend %animation-default;
-                                    }
-                                }
-                            }
-                        }
+//                         ~ .carousel__prev {
+//                             > label {
+//                                 @if $i == 1 {
+//                                     &:nth-child(#{$items}) {
+//                                         @extend %animation-default;
+//                                     }
+//                                 } @else if $i == $items {
+//                                     &:nth-child(#{$items - 1}) {
+//                                         @extend %animation-default;
+//                                     }
+//                                 } @else {
+//                                     &:nth-child(#{$i -1}) {
+//                                         @extend %animation-default;
+//                                     }
+//                                 }
+//                             }
+//                         }
 
-                        ~ .carousel-next {
-                            > label {
-                                @if $i == $items {
-                                    &:nth-child(1) {
-                                        @extend %animation-default;
-                                    }
-                                } @else {
-                                    &:nth-child(#{$i + 1}) {
-                                        @extend %animation-default;
-                                    }
-                                }
-                            }
-                        }
+//                         ~ .carousel__next {
+//                             > label {
+//                                 @if $i == $items {
+//                                     &:nth-child(1) {
+//                                         @extend %animation-default;
+//                                     }
+//                                 } @else {
+//                                     &:nth-child(#{$i + 1}) {
+//                                         @extend %animation-default;
+//                                     }
+//                                 }
+//                             }
+//                         }
 
-                        ~ .carousel-nav {
-                            > label {
-                                &:nth-child(#{$i}) {
-                                    background: #ccc;
-                                    cursor: pointer;
-                                    pointer-events: none;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//                         ~ .carousel__nav {
+//                             > label {
+//                                 &:nth-child(#{$i}) {
+//                                     background: #ccc;
+//                                     cursor: pointer;
+//                                     pointer-events: none;
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+
+//         &__items {
+//             margin: 0;
+//             padding: 0;
+//             list-style: none;
+//             width: 100%;
+//             height: 600px;
+//             position: relative;
+//         }
+
+//         &__item{
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             height: 100%;
+//             z-index: 1;
+//             transition: opacity 2s;
+//             -webkit-transition: opacity 2s;
+
+//             div.daily-diary {
+//                 width: 100%;
+//                 vertical-align: middle;
+//             }
+//         }
+
+//         &__prev, &__next {
+//             > label {
+//                 border: 1px solid #fff;
+//                 border-radius: 50%;
+//                 cursor: pointer;
+//                 display: block;
+//                 width: 40px;
+//                 height: 40px;
+//                 position: absolute;
+//                 top: 50%;
+//                 transform: translateY(-50%);
+//                 -webkit-transform: translateY(-50%);
+//                 opacity: 0;
+//                 z-index: 2;
+
+//                 &:hover, &:focus{opacity: 0.5 !important;}
+
+//                 &::after, &::before{
+//                     content: "";
+//                     position: absolute;
+//                     width: inherit;
+//                     height: inherit;
+//                 }
+
+//                 &::before{
+//                     background: linear-gradient(to top, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%),
+//                     linear-gradient(to left, #fff 0%, #fff 10%, rgba(51, 51, 51, 0) 10%);
+//                     width: 60%;
+//                     height: 60%;
+//                     top: 20%;
+//                 }
+//             }
+//         }
+
+//         &__prev {
+//             > label {
+//                 left: 2%;
+            
+//                 &::before{
+//                     left: 35%;
+//                     top: 20%;
+//                     transform: rotate(135deg);
+//                     -webkit-transform: rotate(135deg);
+//                 }
+//             }
+//         }
+
+//         &__next{
+//             > label {
+//                 right: 2%;
+
+
+//                 &::before{
+//                     left: 10%;
+//                     transform: rotate(315deg);
+//                     -webkit-transform: rotate(315deg);
+//                 }
+//             }
+//         }
+
+//         &__nav{
+//             > label {
+
+//             }
+//         }
+
+//     }
+// }
+
+
 
 // *:not(i){font-family: 'Raleway', sans-serif;}
 
@@ -106,10 +200,18 @@
     outline: none;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
 body{
     // max-height: 100vh;
     // max-width: 100vw;
     // margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     font-size: 1rem;
     overflow-x: hidden;
     background: url(../img/bg2.jpg) no-repeat;
@@ -124,6 +226,73 @@ div.container{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+div.slider {
+    width: 97%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+div.slides{
+    display: flex;
+    overflow-x: auto;
+    // scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar{
+        width: 5px;
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: #000;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track{background: transparent;}
+
+    > div {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        transform-origin: center center;
+        transform: scale(1);
+        transition: transform 0.5s;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    > div:target{
+        /*   transform: scale(0.8); */
+    }
+}
+
+.slider > a {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #000;
+    position: relative;
+}
+.slider > a:active {top: 1px;}
+.slider > a:focus {background: #000;}
+
+
+div.daily-diary{
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
